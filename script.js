@@ -18,10 +18,9 @@ function generatePassword(password) {
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var specialCharacters = "!@#$%^&*()-_+=";
   var numbers = "1234567890";
+  var password = "" 
   
   //   password = specialCharacters + upperCase + lowerCase + numbers;
-
-  passwordText.innerHTML = pwLength
   // check for PW length and check for correct number of characters.
   if(pwLength < 8){
       alert("Your password is too short")
@@ -30,13 +29,14 @@ function generatePassword(password) {
       alert("Your password is too long")
     }
   else{
-    for (i=0; i<=pwLength; i++){ 
-        passsword = 
+    for (i = 0; i <= pwLength - 1; i++){ 
+        password = password + upperCase.charAt(
+            Math.floor(Math.random() * Math.floor(upperCase.length))
+        );   
     }
   }
+  passwordText.innerHTML = password
 }
-
-//take the value of PW length and use that to inform the length of the password
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
