@@ -6,7 +6,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.innerHTML = password
   var password = generatePassword();
-//   passwordText.value = password;
 }
 
 //Add all other prompts to the list of questions to capture criteria
@@ -16,10 +15,8 @@ function generatePassword(password) {
   var caseLower = confirm("Lowercase Y/N");
   var caseNumber = confirm("Numbers Y/N");
   var caseSpecial = confirm("Special Symbols or Characters Y/N");
-  // console.log(caseUpper);
-  // console.log(pwLength);
 
-//   console.log(pwLength);
+  // List of more variables and characters 
   var passwordText = document.querySelector("#password");
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
@@ -27,8 +24,7 @@ function generatePassword(password) {
   var numbers = "1234567890";
   var password = "" 
   
-  //   password = specialCharacters + upperCase + lowerCase + numbers;
-  // check for PW length and check for correct number of characters.
+  // check for PW length and check for correct number of characters. 
   if(pwLength < 8){
       alert("Your password is too short")
     }
@@ -36,10 +32,7 @@ function generatePassword(password) {
       alert("Your password is too long")
     }
   else{
-    // if(caseUpper){
-    //     password = password + upperCase
-    // }
-    if (caseUpper) {
+  if (caseUpper) {
        password = password.concat(upperCase);
   }
   if (caseLower) {
@@ -51,14 +44,25 @@ function generatePassword(password) {
   if (caseNumber) {
        password = password.concat(numbers);
   }
+  console.log("pass1", password)
 
+    // Comment out our older for loop to test new idea 
+    // for (i = 0; i <= pwLength - 1; i++){ 
+    //     password = password + upperCase.charAt(
+    //         Math.floor(Math.random() * Math.floor(upperCase.length))
+    //     );   
+    // }
+    
+    // Changing the For Loop and adding using a new variable 
+    var passwordCharacters = []
     for (i = 0; i <= pwLength - 1; i++){ 
-        password = password + upperCase.charAt(
-            Math.floor(Math.random() * Math.floor(upperCase.length))
-        );   
-    }
+        password = passwordCharacters + password.charAt(
+                 Math.floor(Math.random() * Math.floor(password.length))
+             );  
+    } 
   }
   passwordText.innerHTML = password
+  console.log("pass2", password)
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
