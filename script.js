@@ -9,8 +9,15 @@ function writePassword() {
 //   passwordText.value = password;
 }
 
+//Add all other prompts to the list of questions to capture criteria
 function generatePassword(password) { 
-  var pwLength = prompt("Length");
+  var pwLength = prompt("Characeter Length of Password");
+  var caseUpper = confirm("Uppercase Y/N");
+  var caseLower = confirm("Lowercase Y/N");
+  var caseNumber = confirm("Numbers Y/N");
+  var caseSpecial = confirm("Special Symbols or Characters Y/N");
+  // console.log(caseUpper);
+  // console.log(pwLength);
 
 //   console.log(pwLength);
   var passwordText = document.querySelector("#password");
@@ -29,6 +36,22 @@ function generatePassword(password) {
       alert("Your password is too long")
     }
   else{
+    // if(caseUpper){
+    //     password = password + upperCase
+    // }
+    if (caseUpper) {
+       password = password.concat(upperCase);
+  }
+  if (caseLower) {
+       password = password.concat(lowerCase);
+  }
+  if (caseSpecial) {
+       password = password.concat(specialCharacters);
+  }
+  if (caseNumber) {
+       password = password.concat(numbers);
+  }
+
     for (i = 0; i <= pwLength - 1; i++){ 
         password = password + upperCase.charAt(
             Math.floor(Math.random() * Math.floor(upperCase.length))
@@ -37,6 +60,5 @@ function generatePassword(password) {
   }
   passwordText.innerHTML = password
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
