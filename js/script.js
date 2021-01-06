@@ -70,7 +70,7 @@ function writePassword() {
   }
 
   console.log("pswd2: ", passwordCharacters);
-  }
+  
   // combine the different array characters into one string using 'join'"
   console.log("pswd3: ", passwordCharacters.join(""));
 
