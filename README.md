@@ -13,3 +13,7 @@ I then started the harder work of calling the functions and using the if, if els
 This required a few different iterations and configurations in terms of placing the statements in different locations in the code to get them to work correctly. 
 
 AFter many hours of working on it I finally have a working app that I'm proud of. 
+
+Please see the image below: 
+
+![PW Generator](pwGenerator.PNG)
